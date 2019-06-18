@@ -18,10 +18,9 @@ function startGame() {
     const wordsArray = ["bulbasaur", "ivysaur", "venusaur"];
     const computerGuess = wordsArray[Math.floor(Math.random() * wordsArray.length)];
     const displayParagraph = document.getElementById("display-paragraph");
-    const fromguessArray = Array.from(computerGuess, element => "_");
-    console.log(fromguessArray);
     const mapguessArray = computerGuess.split("").map(element => "_")
-    console.log(mapguessArray)
+    console.log(mapguessArray);
+    
 
 
 
