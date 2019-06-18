@@ -4,5 +4,9 @@ document.onkeyup = function(event) {
 };
 
 function startGame() {
-  document.write("Game has started!");
+  const displayDiv = document.createElement("div");
+  displayDiv.innerText = "I'm the display div!";
+  const body = document.getElementById("body");
+  body.insertBefore(displayDiv, body.childNodes[0]);
+
 }
