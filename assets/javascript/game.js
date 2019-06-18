@@ -49,6 +49,8 @@ function startGame() {
             wins++;
             const winsParagraph = document.getElementById("wins");
             winsParagraph.innerText = `Wins: ${wins}`;
+        } else if (guesses === 0) {
+            console.log("You Lose!")
         }
     }
 }
