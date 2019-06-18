@@ -10,7 +10,7 @@ document.addEventListener("keyup", function (event) {
 );
 
 function startGame() {
-
+    let wins = 0;
     const instructionsDiv = document.getElementById("instructions");
     const displayDiv = document.getElementById("display-div");
     instructionsDiv.style.display = "none";
@@ -33,15 +33,19 @@ function startGame() {
                     guessArray[i] = computerGuess[i];
                     alreadyGuessedArray.push(userGuess);
                     console.log(guessArray);
+                    console.log(computerGuess)
                 }
-
             }
         } else {
             alreadyGuessedArray.push(userGuess);
             console.log("You guessed wrong!")
         }
         displayParagraph.innerText = guessArray.join(" ");
-
+        if (guessArray.join("") === computerGuess) {
+            wins++;
+            const winsParagraph = document.getElementById("wins");
+            winsParagraph.innerText = `Wins: ${wins}`;
+        }
     }
 }
 
