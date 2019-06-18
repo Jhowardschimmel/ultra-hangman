@@ -11,6 +11,7 @@ document.addEventListener("keyup", function (event) {
 
 function startGame() {
     let wins = 0;
+    let guesses = 10;
     const instructionsDiv = document.getElementById("instructions");
     const displayDiv = document.getElementById("display-div");
     instructionsDiv.style.display = "none";
@@ -25,6 +26,7 @@ function startGame() {
     document.onkeyup = function (event) {
         const userGuess = event.key;
         console.log(event.key);
+        guesses--;
         if (alreadyGuessedArray.includes(userGuess)) {
             console.log("You already guessed that letter!")
         } else if (computerGuess.includes(userGuess)) {
@@ -41,6 +43,8 @@ function startGame() {
             console.log("You guessed wrong!")
         }
         displayParagraph.innerText = guessArray.join(" ");
+        const guessesParagraph = document.getElementById("guesses");
+        guessesParagraph.innerText = `Number of Guesses Remaining: ${guesses}`;
         if (guessArray.join("") === computerGuess) {
             wins++;
             const winsParagraph = document.getElementById("wins");
