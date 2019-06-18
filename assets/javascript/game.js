@@ -21,16 +21,24 @@ function startGame() {
     const guessString = computerGuess.split("").map(element => "_").join(" ");
     displayParagraph.innerText = guessString;
     const guessArray = guessString.split(" ");
+    const alreadyGuessedArray = [];
     document.onkeyup = function (event) {
         const userGuess = event.key;
         console.log(event.key);
-        console.log(computerGuess);
-        for (let i = 0; i < computerGuess.length; i++) {
-            if (userGuess === computerGuess[i]) {
-                guessArray[i] = computerGuess[i];
-                console.log(guessArray);
-            }
+        if (alreadyGuessedArray.includes(userGuess)) {
+            console.log("You already guessed that letter!")
+        } else if (computerGuess.includes(userGuess)) {
+            for (let i = 0; i < computerGuess.length; i++) {
+                if (userGuess === computerGuess[i]) {
+                    guessArray[i] = computerGuess[i];
+                    alreadyGuessedArray.push(userGuess);
+                    console.log(guessArray);
+                }
 
+            }
+        } else {
+            alreadyGuessedArray.push(userGuess);
+            console.log("You guessed wrong!")
         }
         displayParagraph.innerText = guessArray.join(" ");
 
