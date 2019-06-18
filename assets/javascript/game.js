@@ -10,7 +10,7 @@ document.addEventListener("keyup", function (event) {
 );
 
 function startGame() {
-    
+
     const instructionsDiv = document.getElementById("instructions");
     const displayDiv = document.getElementById("display-div");
     instructionsDiv.style.display = "none";
@@ -18,13 +18,8 @@ function startGame() {
     const wordsArray = ["bulbasaur", "ivysaur", "venusaur"];
     const computerGuess = wordsArray[Math.floor(Math.random() * wordsArray.length)];
     const displayParagraph = document.getElementById("display-paragraph");
-    const mapguessArray = computerGuess.split("").map(element => "_")
-    console.log(mapguessArray);
-    
-
-
-
-    displayParagraph.innerText = computerGuess;
+    const guessString = computerGuess.split("").map(element => "_").join(" ");
+    displayParagraph.innerText = guessString;
 }
 
 
