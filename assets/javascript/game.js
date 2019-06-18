@@ -20,14 +20,31 @@ function startGame() {
     const displayParagraph = document.getElementById("display-paragraph");
     const guessString = computerGuess.split("").map(element => "_").join(" ");
     displayParagraph.innerText = guessString;
+    const guessArray = guessString.split(" ");
+    document.onkeyup = function (event) {
+        const userGuess = event.key;
+        console.log(event.key);
+        console.log(computerGuess);
+        console.log(guessString.length)
+        
+        console.log(guessArray);
+        
+        for (let i = 0; i < computerGuess.length; i++) {
+            if (userGuess === computerGuess[i]) {
+                guessArray[i] = computerGuess[i];
+                console.log(guessArray);
+            }
+            
+        }
+        console.log(guessArray) 
+        
+    }
 }
 
 
 
 
-document.onkeyup = function (event) {
-    console.log(event.key)
-}
+
 
 
 
