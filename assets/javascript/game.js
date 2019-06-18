@@ -25,19 +25,15 @@ function startGame() {
         const userGuess = event.key;
         console.log(event.key);
         console.log(computerGuess);
-        console.log(guessString.length)
-        
-        console.log(guessArray);
-        
         for (let i = 0; i < computerGuess.length; i++) {
             if (userGuess === computerGuess[i]) {
                 guessArray[i] = computerGuess[i];
                 console.log(guessArray);
             }
-            
+
         }
-        console.log(guessArray) 
-        
+        displayParagraph.innerText = guessArray.join(" ");
+
     }
 }
 
