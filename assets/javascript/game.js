@@ -1,13 +1,14 @@
+let gameRunning = false;
 document.addEventListener("keyup", function (event) {
-    const instructionsDiv = document.getElementById("instructions");
-    const displayDiv = document.getElementById("display-div");
-    instructionsDiv.style.display = "none";
-    displayDiv.style.display = "block";
-    startGame();
-
-},
-    { once: true }
-);
+    if (gameRunning === false) {
+        gameRunning = true;
+        const instructionsDiv = document.getElementById("instructions");
+        const displayDiv = document.getElementById("display-div");
+        instructionsDiv.style.display = "none";
+        displayDiv.style.display = "block";
+        startGame();
+    }
+});
 
 function startGame() {
     let wins = 0;
